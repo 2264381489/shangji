@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <style>
+        input{
+            border-radius: 40px;
+            /*line-height: 40px;*/
+            width: 100px;
+            height: 40px;
+            width: calc(100% - 40px);
+            background-color: white;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        label{
+            margin-bottom:20px;
+            display: block;
+        }
+        .sex{
+            line-height: 10px;
+            height: 20px;
+            width: 20px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body style="background: url('oneday图片.jpg')">
+
+<div style="text-align: center;">
+    <h1 style="font-size:70px;opacity:0.6;color: white;font-weight: bold;">欢迎注册</h1>
+</div>
+<div style="margin: 40px auto;width: 500px;background-color: white;opacity: 0.7;">
+    <label for="name">姓名：</label><input id="name" type="text"><br><br>
+    <label for="sex">性别：</label><input id="sex" class="sex" type="radio" value="男" name="sex" style="display: inline-block;">男<input  class="sex" type="radio" value="女" name="sex" style="display:inline-block;">女<br><br>
+    <label for="birth">出生年月日：</label><input id="birth" type="text"><br><br>
+    <label for="address">住址: </label><input id="address" type="text"><br><br>
+    <label for="id">用户名 </label><input id="id" type="text"><br><br>
+    <label for="code1">密码: </label><input id="code1" type="text"><br><br>
+    <label for="code">确认密码: </label><input id="code" type="text"><br><br>
+    <button id="button">提交</button>
+</div>
+
+</body>
+<script>
+    var code1=document.getElementById('code1');
+    var code=document.getElementById('code');
+    var btn=document.getElementById('button');
+    var id=document.getElementById('id');
+    var RegExp=/^[a-zA-Z0-9]{6,}$/;
+    btn.onclick=function () {
+
+if(code1.value===""||code.value===""||id.value==="") {
+    alert('请检查表单');
+
+
+}else  if (RegExp.test(id.value)==false){
+    alert('您的用户名不符合');
+
+}
+    else if (code1.value !== code.value) {
+        alert('输入的密码不相同');
+
+    } else {
+        if (code.length>5) {
+            alert('密码强度:强');
+        }
+        if(code.length<5&&code.length>1){
+            alert('密码强度：中');
+        }
+        else{
+            alert('密码强度：弱')
+        };
+    }
+
+
+
+
+
+    }
+
+
+
+
+
+
+</script>
+</html>

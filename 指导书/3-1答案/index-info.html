@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>点击价格按钮显示商品价格</title>
+    <meta name="viewport" content="width=device-width">
+    <link type="text/css" rel="stylesheet" href="common/mr-common.css">
+    <script src="common/mr-common.js"></script>
+    <script src="js/js.js"></script>
+	 <!-- 本案例CSS文件-->
+	 <link type="text/css" rel="stylesheet" href="css/mr-style.css">
+</head>
+<body>
+
+<ui-view>
+    <div id="codeArea" class="container containerHome">
+        <div class="icons">
+            <section>
+                <h1>如图所示，点击商品图图片下的价格按钮，会弹出弹出框显示商品价格。</h1>
+
+                <p class="mr-code-info">
+                   在JavaScript中，函数的定义是由关键字function、函数名加一组参数以及置于大括号中需要执行的一段代码定义的。函数定义后并不会自动执行，要执行一个函数需要在特定的位置调用函数，调用函数需要创建调用语句，调用语句包含函数名称、参数具体值。
+                </p>
+            </section>
+
+            <section>
+                <hr/>
+                <div>效果<a class="mr-code-link" href="javascript:showCode();">源码</a></div>
+            </section>
+
+            <section class="mr-code-show">
+			    <!-- 这里填写你的HTML代码-->
+       
+               <form action="" name="form1" method="post">
+                <div class="mr-content">
+                <span>请输入要格式化的数字：</span>
+                <input name="str" type="text" value="">
+                <span>请输入格式化后数字的长度：</span>
+                <input name="le" type="text" value="">
+                <span>格式化后的数字：</span>
+                <input name="lastStr" type="text" readonly value=""><br/>
+                <input name="Submit" type="button" class="mr-button1" onClick="deal();" value="转换">
+                <input name="Submit2" type="button" class="mr-button2" onClick="window.location.reload()" value="刷新">   
+                </div>
+                </form>
+              
+
+            </section>
+
+            <footer class="mr-footer">
+                <hr/>
+                <p>技术支持： <a href="http://www.mingrisoft.com/" target="_blank">明日科技</a></p>
+            </footer>
+
+        </div>
+
+
+        <!-- 源码区域开始 -->
+        <ui-view>
+            <div class="viewer ng-scope">
+                <a class="buttonClose" href='javascript:closeCode();'></a>
+
+                <div class="viewerWrapper">
+                    <div class="iconLabel ng-binding"> 源码</div>
+                    <div class="codeBlocks">
+                        <h4>HTML</h4>
+                        <xmp>
+
+<form action="" name="form1" method="post">
+<div class="mr-content">
+<span>请输入要格式化的数字：</span>
+<input name="str" type="text" value="">
+<span>请输入格式化后数字的长度：</span>
+<input name="le" type="text" value="">
+<span>格式化后的数字：</span>
+<input name="lastStr" type="text" readonly value=""><br/>
+<input name="Submit" type="button" class="mr-button1" onClick="deal();" value="转换">
+<input name="Submit2" type="button" class="mr-button2" onClick="window.location.reload()" value="刷新">   
+</div>
+</form>
+                        </xmp>
+                        <h4>CSS</h4>
+                        <xmp>
+
+.mr-content{
+	width:488px;
+	height:217px;
+	border:1px solid red;
+	margin:0 auto;
+	background:url(images/bg.gif) no-repeat;
+	}
+.mr-content span{
+	display:block;
+	padding-top:20px;
+	padding-left:140px;
+	}
+.mr-content input{
+	margin-left:140px;
+	}
+.mr-content .mr-button1{
+	margin-top:10px;
+	}
+.mr-content .mr-button2{
+	margin-top:10px;
+	margin-left:20px;
+	}
+                        </xmp>
+                        <h4>JS</h4>
+                        <xmp>
+
+function deal(){
+if(form1.str.value=="")
+{alert("请输入要格式化的数字！");form1.str.focus();return false;}
+if(isNaN(form1.str.value)){
+	alert("您输入的数字不正确!");form1.str.focus();return false;
+}
+if(form1.le.value=="")
+{alert("请输入格式化后的长度！");form1.le.focus();return false;}
+if(isNaN(form1.le.value)){
+	alert("您输入的格式化的长度不正确!");form1.le.focus();return false;
+}
+form1.lastStr.value=formatNO(form1.str.value,form1.le.value);
+}
+function formatNO(str,len){
+	var strLen=str.length;
+	for(i=0;i<len-strLen;i++){
+		str="0"+str;
+	}
+	return str;
+}
+
+                        </xmp>
+                    </div>
+                </div>
+            </div>
+        </ui-view>
+        <!-- 源码区域结束-->
+		
+    </div>
+
+</ui-view>
+
+</body>
+</html>

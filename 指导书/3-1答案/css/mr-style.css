@@ -1,0 +1,23 @@
+.mr-content{
+	width:488px;
+	height:217px;
+	border:1px solid red;
+	margin:0 auto;
+	background: url(../images/bg.gif) no-repeat;
+	font-size:12px;
+	}
+.mr-content span{
+	display:block;
+	padding-top:20px;
+	padding-left:140px;
+	}
+.mr-content input{
+	margin-left:140px;
+	}
+.mr-content .mr-button1{
+	margin-top:10px;
+	}
+.mr-content .mr-button2{
+	margin-top:10px;
+	margin-left:20px;
+	}

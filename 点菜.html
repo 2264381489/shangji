@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>点菜</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+        .qiezi{
+        background: url("images/1.png");
+            background-size:100% 100%;
+            /*background: red;*/
+            top: 100px;
+        }
+        .fan2{
+            background: url("images/3.png") no-repeat;
+            background-size:100% 100%;
+            top: 200px;
+        }
+        .fan3{
+            top: 300px;
+            background: url(images/2.png);
+            background-size:100% 100%;
+        /*    如何让背景图片填满整个内容*/
+        }
+        .fan4{
+            top: 400px;
+            background: url(images/4.png);
+        }
+    </style>
+</head>
+<body>
+<div style="position: relative;">
+<div class="qiezi" id="fan1"></div>
+<div class="fan2" id="fan2"> </div>
+<div class="fan3" id="fan3"></div>
+<div class="fan4" id="fan4"></div>
+</div>
+<div style="width: 800px;height: 1300px;float: right;background: red; color:white;font-size:120px;position: static;background: url(images/fourbg.jpg)">点菜区</div>
+</body>
+<script>
+    window.onload=function () {
+
+
+        var fan1s = document.getElementById('fan1');
+        var fan2=document.getElementById('fan2');
+        var fan3=document.getElementById('fan3');
+        console.log(fan1s);
+        var delx = 0;
+        var dely = 0;
+        var flag = false;
+        fan1s.onmousedown=mousedown;
+        fan2.onmousedown=mousedown2;
+        fan3.onmousedown=mousedown;
+        function mousedown2() {
+
+
+            delx = event.clientX - fan2.offsetLeft;
+            dely = event.clientY - fan2.offsetTop;
+            console.log('chufa');
+            document.onmousemove = mousemove2;
+            document.onmouseup = mouseup;
+
+        }
+
+        function mousedown() {
+            //获取需要删除的距离
+            // console.log('ok');
+            delx = event.clientX - fan1s.offsetLeft;
+            dely = event.clientY - fan1s.offsetTop;
+            console.log('chufa');
+            document.onmousemove = mousemove;
+            document.onmouseup = mouseup;
+
+        };
+
+        //3.整个文档绑定鼠标移动事件
+        function mousemove() {
+
+            //删除多余的距离 保持住按下的位置
+            var x = event.clientX - delx;
+            console.log(x);
+            var y = event.clientY - dely;
+            fan1s.style.left = x + 'px';
+            fan1s.style.top = y + 'px';
+
+        };
+        function mousemove2() {
+
+            //删除多余的距离 保持住按下的位置
+            var x = event.clientX - delx;
+            console.log(x);
+            var y = event.clientY - dely;
+            fan2.style.left = x + 'px';
+            fan2.style.top = y + 'px';
+
+        };
+
+        function mouseup() {
+            document.onmousemove = null;
+            document.onmouseup = null;
+
+        };
+
+        // fan1.onmouseup=function(){
+        //     flag=false;
+        // }
+    }
+</script>
+</html>
